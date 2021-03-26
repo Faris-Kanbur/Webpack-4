@@ -22,11 +22,17 @@ module.exports = {
     minimizer: [
       new CssMinimizerPlugin(),
       new TerserPlugin(),
+      new HtmlWebpackPlugin({
+        template:  "./src/template.html",
+        minify: {
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+          removeComments: true
+        }
+      })
     ]
   },
-  plugins: [new HtmlWebpackPlugin({
-    template: "./src/template.html"
-  }),
+  plugins: [
   new CleanWebpackPlugin(),
   new MiniCssExtractPlugin({
     filename: "[name].[contenthash].css"
