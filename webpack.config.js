@@ -6,9 +6,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: "development",
   // devtoll: "none",
-  entry: "./src/index.js",
+  entry: {
+    main: "./src/index.js",
+    vendor: "./src/verdor.js",
+  },
   output: {
-    filename: "main.[contenthash].js",
+    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist")
   },
   plugins: [new HtmlWebpackPlugin({
